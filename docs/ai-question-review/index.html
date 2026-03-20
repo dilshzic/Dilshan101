@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Question-by-Question AI vs DB Review</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d7e1eb;
+      --text: #1f2937;
+      --muted: #64748b;
+      --ok: #166534;
+      --bad: #b91c1c;
+      --chip: #eef2f7;
+      --primary: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Segoe UI, Arial, sans-serif; color: var(--text); background: linear-gradient(180deg, #f8fbff 0%, #edf3f9 100%); }
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 16px; }
+    .top { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+    .title { margin: 0 0 6px 0; font-size: 22px; }
+    .meta { color: var(--muted); font-size: 13px; }
+
+    .filters { display: grid; grid-template-columns: repeat(7, minmax(120px, 1fr)); gap: 8px; margin-top: 12px; }
+    .filters input, .filters select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+
+    .nav { display: flex; gap: 8px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+    .btn { border: 1px solid var(--line); background: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+    .btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .pager { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+    .layout { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+    .qhead { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .chip { background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; font-size: 12px; }
+    .chip.ok { color: var(--ok); border-color: #bbf7d0; background: #f0fdf4; }
+    .chip.bad { color: var(--bad); border-color: #fecaca; background: #fef2f2; }
+
+    .stem { font-size: 16px; line-height: 1.45; margin: 8px 0 14px 0; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid var(--line); padding: 8px; vertical-align: top; font-size: 13px; }
+    th { background: #f8fafc; }
+    .oktxt { color: var(--ok); font-weight: 700; }
+    .badtxt { color: var(--bad); font-weight: 700; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+    .card { border: 1px solid var(--line); border-radius: 10px; padding: 10px; background: #fff; }
+    .card h4 { margin: 0 0 8px 0; }
+    .small { color: var(--muted); font-size: 12px; }
+
+    @media (max-width: 980px) {
+      .filters { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .split { grid-template-columns: 1fr; }
+      .pager { width: 100%; margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <h1 class="title">Question-by-Question AI vs DB Review</h1>
+      <div id="meta" class="meta">Loading...</div>
+
+      <div class="filters">
+        <input id="search" placeholder="Search question ID or stem" />
+        <select id="module"></select>
+        <select id="subject"></select>
+        <select id="category"></select>
+        <select id="batch"></select>
+        <select id="qtype"></select>
+        <select id="status"></select>
+      </div>
+
+      <div class="nav">
+        <button class="btn" id="prev">Prev</button>
+        <button class="btn" id="next">Next</button>
+        <button class="btn" id="firstMismatch">First Mismatch</button>
+        <button class="btn" id="reset">Reset Filters</button>
+
+        <div class="pager">
+          <label>Per Page</label>
+          <select id="pageSize">
+            <option value="1" selected>1 (Question-by-question)</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+          </select>
+          <button class="btn primary" id="apply">Apply</button>
+          <span id="pageInfo" class="small"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="results" class="layout"></div>
+  </div>
+
+  <script>
+    let data = [];
+    let filtered = [];
+    let currentPage = 1;
+
+    const byId = (id) => document.getElementById(id);
+    const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort((a,b) => String(a).localeCompare(String(b)));
+
+    function fillSelect(id, values, label) {
+      const sel = byId(id);
+      sel.innerHTML = `<option value="ALL">All ${label}</option>` + values.map(v => `<option value="${v.replace(/"/g,'&quot;')}">${v}</option>`).join('');
+    }
+
+    function setupFilters() {
+      fillSelect('module', uniq(data.map(x => x.master_category)), 'Modules');
+      fillSelect('subject', uniq(data.map(x => x.subject)), 'Subjects');
+      fillSelect('category', uniq(data.map(x => x.category)), 'Categories');
+      fillSelect('batch', uniq(data.map(x => x.batch)), 'Batches');
+      fillSelect('qtype', uniq(data.map(x => x.question_type)), 'Types');
+      fillSelect('status', ['MATCH','MISMATCH','MISSING_IN_AI'], 'Statuses');
+    }
+
+    function statusChip(status) {
+      if (status === 'MATCH') return `<span class="chip ok">MATCH</span>`;
+      if (status === 'MISSING_IN_AI') return `<span class="chip bad">MISSING_IN_AI</span>`;
+      return `<span class="chip bad">MISMATCH</span>`;
+    }
+
+    function boolBadge(v) {
+      return v ? `<span class="oktxt">TRUE</span>` : `<span class="badtxt">FALSE</span>`;
+    }
+
+    function optionRow(o) {
+      return `
+        <tr>
+          <td><b>${o.letter}</b>. ${o.text}</td>
+          <td>${boolBadge(o.db_is_correct)}</td>
+          <td>${boolBadge(o.ai_is_correct)}</td>
+          <td>${o.match ? '<span class="oktxt">MATCH</span>' : '<span class="badtxt">DIFF</span>'}</td>
+          <td>${o.db_explanation || '<span class="small">(none)</span>'}</td>
+          <td>${o.ai_explanation || '<span class="small">(none)</span>'}</td>
+        </tr>
+      `;
+    }
+
+    function questionCard(q) {
+      return `
+      <div class="panel">
+        <div class="qhead">
+          <span class="chip">${q.question_id}</span>
+          <span class="chip">${q.master_category}</span>
+          <span class="chip">${q.subject}</span>
+          <span class="chip">${q.category}</span>
+          <span class="chip">${q.batch}</span>
+          <span class="chip">${q.question_type}</span>
+          ${statusChip(q.status)}
+        </div>
+
+        <div class="stem">${q.stem}</div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>DB Correct</th>
+              <th>AI Correct</th>
+              <th>Comparison</th>
+              <th>DB Option Explanation</th>
+              <th>AI Option Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${q.options.map(optionRow).join('')}
+          </tbody>
+        </table>
+
+        <div class="split">
+          <div class="card">
+            <h4>DB Answer</h4>
+            <div><b>Raw:</b> ${q.db.correct_answer_raw || '<span class="small">(empty)</span>'}</div>
+            <div><b>Letters:</b> ${(q.db.correct_letters || []).join(', ') || '-'}</div>
+            <div><b>General Explanation:</b><br>${q.db.general_explanation || '<span class="small">(empty)</span>'}</div>
+            <div><b>Reference:</b> ${q.db.reference || '<span class="small">(empty)</span>'}</div>
+          </div>
+
+          <div class="card">
+            <h4>AI Answer</h4>
+            <div><b>Raw:</b> ${Array.isArray(q.ai.answer_raw) ? q.ai.answer_raw.join(' | ') : (q.ai.answer_raw || '<span class="small">(empty)</span>')}</div>
+            <div><b>Letters:</b> ${(q.ai.correct_letters || []).join(', ') || '-'}</div>
+            <div><b>Clinical Core:</b><br>${q.ai.clinical_core || '<span class="small">(empty)</span>'}</div>
+            <div><b>Reference:</b> ${q.ai.reference || '<span class="small">(empty)</span>'}</div>
+          </div>
+        </div>
+      </div>
+      `;
+    }
+
+    function applyFilters() {
+      const q = (byId('search').value || '').toLowerCase().trim();
+      const module = byId('module').value;
+      const subject = byId('subject').value;
+      const category = byId('category').value;
+      const batch = byId('batch').value;
+      const qtype = byId('qtype').value;
+      const status = byId('status').value;
+
+      filtered = data.filter(item => {
+        if (module !== 'ALL' && item.master_category !== module) return false;
+        if (subject !== 'ALL' && item.subject !== subject) return false;
+        if (category !== 'ALL' && item.category !== category) return false;
+        if (batch !== 'ALL' && item.batch !== batch) return false;
+        if (qtype !== 'ALL' && item.question_type !== qtype) return false;
+        if (status !== 'ALL' && item.status !== status) return false;
+        if (q) {
+          const txt = `${item.question_id} ${item.stem}`.toLowerCase();
+          if (!txt.includes(q)) return false;
+        }
+        return true;
+      });
+
+      currentPage = 1;
+      render();
+    }
+
+    function pageCount() {
+      const ps = Number(byId('pageSize').value || 1);
+      return Math.max(1, Math.ceil(filtered.length / ps));
+    }
+
+    function render() {
+      const ps = Number(byId('pageSize').value || 1);
+      const pages = pageCount();
+      currentPage = Math.max(1, Math.min(currentPage, pages));
+
+      const start = (currentPage - 1) * ps;
+      const items = filtered.slice(start, start + ps);
+
+      byId('results').innerHTML = items.length
+        ? items.map(questionCard).join('')
+        : '<div class="panel"><b>No questions found for current filters.</b></div>';
+
+      const mismatches = filtered.filter(x => x.status !== 'MATCH').length;
+      byId('meta').textContent = `Total: ${data.length} | Filtered: ${filtered.length} | Non-match in filter: ${mismatches}`;
+      byId('pageInfo').textContent = `Page ${currentPage}/${pages}`;
+
+      byId('prev').disabled = currentPage <= 1;
+      byId('next').disabled = currentPage >= pages;
+    }
+
+    function resetFilters() {
+      byId('search').value = '';
+      ['module','subject','category','batch','qtype','status'].forEach(id => byId(id).value = 'ALL');
+      filtered = [...data];
+      currentPage = 1;
+      render();
+    }
+
+    function jumpFirstMismatch() {
+      const idx = filtered.findIndex(x => x.status !== 'MATCH');
+      if (idx < 0) return;
+      const ps = Number(byId('pageSize').value || 1);
+      currentPage = Math.floor(idx / ps) + 1;
+      render();
+    }
+
+    async function init() {
+      const res = await fetch('data/questions_compare.json');
+      data = await res.json();
+      setupFilters();
+      filtered = [...data];
+
+      byId('apply').addEventListener('click', applyFilters);
+      byId('reset').addEventListener('click', resetFilters);
+      byId('firstMismatch').addEventListener('click', jumpFirstMismatch);
+      byId('prev').addEventListener('click', () => { currentPage--; render(); });
+      byId('next').addEventListener('click', () => { currentPage++; render(); });
+      byId('pageSize').addEventListener('change', () => { currentPage = 1; render(); });
+
+      render();
+    }
+
+    init();
+  </script>
+</body>
+</html>
