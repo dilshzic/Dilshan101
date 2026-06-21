@@ -1,0 +1,2070 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychiatry Module Conflict Review [High Fidelity]</title>
+    <meta http-equiv="refresh" content="30">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-green: #22c55e;
+            --accent-blue: #3b82f6;
+            --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+            --border-color: #334155;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-primary); margin: 0; padding: 20px; line-height: 1.6; }
+        header { max-width: 1400px; margin: 0 auto 40px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; font-size: 24px; font-weight: 700; color: var(--accent-purple); }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 25px; margin-bottom: 25px; border: 1px solid var(--border-color); }
+        .card:hover { border-color: var(--accent-purple); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .badge { padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .badge-ai { background: rgba(34, 197, 94, 0.1); color: var(--accent-green); }
+        .badge-human { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
+        .badge-diff { background: rgba(245, 158, 11, 0.1); color: var(--accent-amber); }
+        .stem { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #fff; }
+        
+        .clinical-core { background: rgba(168, 85, 247, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent-purple); margin-bottom: 20px; font-size: 14px; }
+        .resolution-audit { background: rgba(245, 158, 11, 0.05); padding: 15px; border-radius: 8px; border: 1px dashed var(--accent-amber); margin-bottom: 20px; font-size: 13px; }
+        
+        .options-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .option-card { background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .option-card.correct { border-color: var(--accent-green); background: rgba(34, 197, 94, 0.05); }
+        .option-card.incorrect { border-color: var(--accent-red); background: rgba(239, 68, 68, 0.05); }
+        .opt-meta { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+        .opt-txt { font-size: 14px; margin-bottom: 5px; color: #fff; }
+        .opt-expl { font-size: 12px; color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Psychiatry Module Conflict Review [High Fidelity]</h1>
+        <div style="text-align: right">
+            <div style="font-size: 12px; color: var(--text-secondary)">Last Refresh: 01:08:12</div>
+            <div style="font-size: 14px; font-weight: 700">Total Conflicts: 40</div>
+        </div>
+    </header>
+    <div class="container">
+        <div id="cards-container">
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_f62e328cae15</span></div>
+            </div>
+            <div class="stem">Which are the correctly paired adverse effects of the drugs</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Adverse drug reactions are common in psychopharmacology and neurology; phenytoin is classically associated with gingival hyperplasia, fluoxetine with gastrointestinal side effects like dyspepsia, and lithium with fine tremors.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The DB included option C (Amitriptyline-diarrhoea) as correct, which is clinically incorrect due to the anticholinergic profile of TCAs causing constipation. The AI correctly identified B, D, and E as the valid pairings.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, B, C, D, E | AI: A, B, D, E | Resolved: B, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Clopramazine _ Parkinsons disease</div>
+                <div class="opt-expl">Chlorpromazine (likely intended spelling) is a typical antipsychotic that causes drug-induced parkinsonism (extrapyramidal symptoms), but the spelling 'Clopramazine' is incorrect, and it is not a standard pairing in this context.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Phenytoin sodium- gum hypertrophy</div>
+                <div class="opt-expl">Gingival hyperplasia (gum hypertrophy) is a well-documented, common side effect of chronic phenytoin therapy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Amitriptyline - diarrhoea</div>
+                <div class="opt-expl">Amitriptyline is a tricyclic antidepressant with strong anticholinergic properties, which typically cause constipation, not diarrhoea.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Fluoxetine- dyspepsia</div>
+                <div class="opt-expl">Dyspepsia and nausea are very common gastrointestinal side effects associated with SSRIs like fluoxetine.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. lithium – tremors</div>
+                <div class="opt-expl">Fine hand tremor is a very common dose-related side effect of lithium therapy.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_e89bc1a9b08a</span></div>
+            </div>
+            <div class="stem">Causes for depression,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Depression can be a primary psychiatric disorder or secondary to general medical conditions (organic mood disorder). Secondary causes include endocrine dysfunction, neurodegenerative diseases, cerebrovascular disease, substance abuse, and systemic inflammatory responses.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> All provided options are clinically recognized causes or strong contributors to the development of depression. The database's 'Not specified' status is an omission of established medical facts.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: Not specified in source | AI: A, B, C, D, E | Resolved: A, B, C, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Chronic alcoholism</div>
+                <div class="opt-expl">Chronic alcohol use leads to neurochemical imbalances and structural brain changes that frequently cause or exacerbate clinical depression.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. COVID19</div>
+                <div class="opt-expl">COVID-19 is associated with depression through multiple pathways, including systemic inflammation (cytokine storm), hypoxia, and the psychological impact of the pandemic.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Cushing disease</div>
+                <div class="opt-expl">Hypercortisolism (excess cortisol) is a well-known cause of psychiatric symptoms, including depression, anxiety, and in severe cases, psychosis.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Parkinson’s disease</div>
+                <div class="opt-expl">Depression is a common non-motor symptom of Parkinson's disease, resulting from the degeneration of dopaminergic, serotonergic, and noradrenergic neurons.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Multiple cerebral infracts</div>
+                <div class="opt-expl">Vascular depression occurs when infarcts in strategic areas of the brain (such as the prefrontal cortex or basal ganglia) disrupt mood-regulating circuits.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-human">Human Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_e36f7c139fed</span></div>
+            </div>
+            <div class="stem">Important measures in sleep hygiene include,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Sleep hygiene refers to behavioral and environmental recommendations designed to promote healthy sleep patterns and improve sleep quality.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI incorrectly included option B. While a light snack is sometimes mentioned in older literature, it is not a primary pillar of sleep hygiene, and heavy or late-night eating is generally discouraged. Options A, C, and E are universally accepted core components of sleep hygiene.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, C, E | AI: A, B, C, E | Resolved: A, C, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Avoiding daytime naps</div>
+                <div class="opt-expl">Napping can reduce homeostatic sleep drive, making it harder to fall asleep at night.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Having a milky snack at bedtime</div>
+                <div class="opt-expl">While some find it soothing, heavy or late-night snacks can cause indigestion or metabolic arousal, which disrupts sleep; it is not a standard core recommendation.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Avoiding caffeinated drinks in the evening</div>
+                <div class="opt-expl">Caffeine is a stimulant that blocks adenosine receptors, delaying sleep onset and reducing sleep quality.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Regular exercise at night</div>
+                <div class="opt-expl">Vigorous exercise close to bedtime can increase core body temperature and sympathetic nervous system activity, which is counterproductive to sleep onset.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Avoiding smoking for an hour before bed</div>
+                <div class="opt-expl">Nicotine is a stimulant that can cause sleep fragmentation and difficulty falling asleep.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_dc4124c35cda</span></div>
+            </div>
+            <div class="stem">Regarding drug on nervous system</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Pharmacological management of anxiety and sleep disorders involves using SSRIs (like sertraline) for long-term maintenance, benzodiazepines for short-term acute relief due to dependence risks, buspirone for generalized anxiety, and melatonin for circadian rhythm disruptions such as jet lag.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified all medically accurate statements (A, B, C, and E) and correctly identified the false statement (D). The database provided no answer, whereas the AI provided a comprehensive and clinically correct analysis.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: A, B, C, E | Resolved: A, B, C, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Busipron is used if anxiety disorder</div>
+                <div class="opt-expl">Buspirone is a non-benzodiazepine anxiolytic specifically indicated for the treatment of generalized anxiety disorder (GAD).</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Benzodiazepine should used for shorter period in anxiety disorder</div>
+                <div class="opt-expl">Due to the high risk of tolerance, dependence, and withdrawal symptoms, benzodiazepines are recommended only for short-term or intermittent use.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. sertaline- long tx for chronic anxiety</div>
+                <div class="opt-expl">Sertraline, an SSRI, is a first-line agent for the long-term management of various anxiety disorders, including GAD and panic disorder.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Zolpidem- panic attacks</div>
+                <div class="opt-expl">Zolpidem is a sedative-hypnotic (Z-drug) used for the short-term treatment of insomnia, not for the treatment of panic attacks.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. melatonin - jet lags</div>
+                <div class="opt-expl">Melatonin is a hormone that regulates the sleep-wake cycle and is clinically used to treat jet lag and other circadian rhythm sleep disorders.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-human">Human Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_d60d84ab271b</span></div>
+            </div>
+            <div class="stem">A 60-year-old man was treated with clozapine for resistant schizophrenia. After some time he developed bowel obstruction with sepsis due to clozapine-induced GI hypomobility. Thereafter clozapine was replaced by haloperidol therapy. After a few months he was presented to you with florid psychotic symptoms and tarduve dyskinesia. What is the best management option?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The patient has treatment-resistant schizophrenia (TRS) and has developed tardive dyskinesia (TD) on a typical antipsychotic (haloperidol). Clozapine is the gold standard for TRS and is uniquely indicated for the management of TD.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI's suggestion (E) ignores the clinical reality of treatment-resistant schizophrenia. The patient requires an effective antipsychotic for his psychosis. Clozapine is the only agent that addresses both the TRS and the TD. The history of GI hypomobility requires careful management (e.g., bowel regimen, monitoring), but it does not permanently preclude the use of the only effective medication for this patient's condition.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A | AI: E | Resolved: A]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Continuing halopiron gradually and rechallange with clozapine</div>
+                <div class="opt-expl">Clozapine is the only antipsychotic with evidence for treating TD and is the treatment of choice for TRS. Given the history of GI hypomobility, a cautious rechallenge with clozapine, potentially with prophylactic bowel management, is the standard of care.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Continuing halopiron gradually and start olanzapin</div>
+                <div class="opt-expl">Olanzapine is not as effective as clozapine for TRS and does not have the same evidence base for treating established TD.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Increasing the dose of haloperidol</div>
+                <div class="opt-expl">Increasing the dose of a typical antipsychotic will likely worsen the tardive dyskinesia.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Initiating an anticholinergic medication</div>
+                <div class="opt-expl">Anticholinergics can worsen tardive dyskinesia and are contraindicated in patients with a history of clozapine-induced GI hypomobility.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Decreasing the dose of haloperidol gradually</div>
+                <div class="opt-expl">While decreasing the dose might help TD, it leaves the patient's florid psychotic symptoms untreated, which is unacceptable for a patient with TRS.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_d4d35f8a3102</span></div>
+            </div>
+            <div class="stem">A 2 year old child presented for the assessment of a developmental disorder. He had slowed head growth, abnormal hand movements, problem with movement & coordination and a loss of social interaction and communication. The mother reported that he had been frequently hyperventilating and screaming for no apparent reason. Which of the following is the most likely diagnosis?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Rett syndrome is an X-linked dominant neurodevelopmental disorder characterized by a period of normal development followed by regression, including microcephaly (slowed head growth), stereotypic hand movements (wringing/washing), loss of purposeful hand skills, gait abnormalities, and autonomic dysfunction such as hyperventilation.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical vignette describes the classic diagnostic criteria for Rett syndrome (MECP2 mutation). The symptoms of acquired microcephaly, loss of purposeful hand skills, stereotypic hand movements, and breathing abnormalities are hallmark features that distinguish it from the other options provided.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: D | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Angelman syndrome</div>
+                <div class="opt-expl">Presents with intellectual disability, ataxia, and happy demeanor, but does not typically feature the specific pattern of regression and hand-wringing seen in Rett syndrome.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Down syndrome</div>
+                <div class="opt-expl">Characterized by distinct facial features, hypotonia, and intellectual disability present from birth, not a regressive disorder.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Fragile X syndrome</div>
+                <div class="opt-expl">The most common inherited cause of intellectual disability; features include macrocephaly (not slowed growth) and behavioral issues, but lacks the specific regression and hand-wringing of Rett syndrome.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Rett syndrome</div>
+                <div class="opt-expl">The clinical presentation of slowed head growth, loss of social/communication skills, stereotypic hand movements, and breathing irregularities (hyperventilation) is pathognomonic for Rett syndrome.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Turner syndrome</div>
+                <div class="opt-expl">A chromosomal condition in females characterized by short stature and gonadal dysgenesis, not a neurodevelopmental regression syndrome.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_d2f13c014a99</span></div>
+            </div>
+            <div class="stem">Regarding delusional disorders,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Delusional disorder is characterized by the presence of one or more delusions for a duration of one month or longer, without the prominent hallucinations, disorganized speech, or negative symptoms seen in schizophrenia. The delusions are often systematized, meaning they are internally consistent and logically structured around a specific theme (e.g., erotomania, jealousy, or persecution).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Option B is the classic and most accurate description of delusional disorder. Option E is incorrect as a primary treatment for the disorder itself, as antipsychotics are the first-line therapy. The AI correctly identified B as the single best answer.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: B, E | AI: B | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Auditory hallucinations are a prominent feature</div>
+                <div class="opt-expl">Auditory hallucinations are not a prominent feature of delusional disorder. If they occur, they are typically secondary to the delusional theme. Prominent hallucinations would suggest a diagnosis of schizophrenia.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Delusions are systematized around a single theme</div>
+                <div class="opt-expl">A hallmark of delusional disorder is that the delusions are often systematized (internally consistent) and typically center on a single theme, such as infidelity, grandeur, or persecution.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Diagnosis requires the presence of at least one first-ranked system</div>
+                <div class="opt-expl">First-rank symptoms (Schneiderian symptoms) are used to identify schizophrenia, not delusional disorder.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Pathological jealousy type is more common in female</div>
+                <div class="opt-expl">Pathological jealousy (Othello syndrome) is statistically more common in males.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Anti-depressant use in treatment</div>
+                <div class="opt-expl">The primary pharmacological treatment for delusional disorder is antipsychotics. Antidepressants are only used if there is a comorbid mood disorder, but they do not treat the core delusional pathology.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-diff">Different</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_ca95e8a86e79</span></div>
+            </div>
+            <div class="stem">Regarding the medications used in the treatment of depression,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Antidepressants primarily function by increasing synaptic monoamine concentrations (serotonin, norepinephrine, dopamine). Mirtazapine is frequently favored in elderly patients due to its side effect profile (sedation, appetite stimulation) and lack of significant drug-drug interactions compared to TCAs or SSRIs.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The question allows for multiple correct answers. Option A is the fundamental mechanism of action for antidepressants. Option E is a standard clinical practice in geriatric psychiatry. The AI's initial exclusion of E was incorrect, and the DB's inclusion of C and D is clinically inaccurate or misleading.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, C, D, E | AI: A, E | Resolved: A, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. They raise monoamine level in the brain</div>
+                <div class="opt-expl">The monoamine hypothesis remains the foundational mechanism for most antidepressants, which increase synaptic levels of serotonin, norepinephrine, and/or dopamine.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Tricyclic Antidepressants relieve the depression symptoms immediately</div>
+                <div class="opt-expl">Antidepressants, including TCAs, typically require 2-4 weeks to show clinical efficacy; they do not provide immediate relief.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Sertraline is contraindicated in the depression mode in bipolar disorders</div>
+                <div class="opt-expl">Sertraline is not strictly contraindicated, though it carries a risk of inducing mania/hypomania if used without a mood stabilizer. It is not a formal contraindication in the same way as certain other drugs.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Quetiapine is used to treat elderly depressed person</div>
+                <div class="opt-expl">While sometimes used off-label, Quetiapine is not a first-line treatment for depression in the elderly due to significant risks of orthostatic hypotension, sedation, and metabolic side effects.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Mirtazapine is used in elderly patients</div>
+                <div class="opt-expl">Mirtazapine is often preferred in the elderly because it helps with insomnia and weight loss/anorexia, and it has a lower risk of drug-drug interactions compared to many other antidepressants.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_c7ef0c4db943</span></div>
+            </div>
+            <div class="stem">11 month old baby brought by his mother to the pediatric clinic with the history of polysyllable babbling, smiling when mother called his name, occasionally look at his mother, pick raisins using thumb and index finger of his left hand. He sits with a support but can't sit from lying position. What’s the most suitable condition he has?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> An 11-month-old infant demonstrating age-appropriate social and fine motor skills (pincer grasp, social responsiveness) but failing to achieve gross motor milestones (sitting independently from a lying position), indicating a specific delay in motor development.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation shows a clear dissociation between social/fine motor skills (which are normal) and gross motor skills (which are delayed). Option B accurately describes this specific deficit. Option C (Cerebral Palsy) is a diagnosis of exclusion and requires evidence of neurological dysfunction (tone/reflexes) not provided in the prompt.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: C | AI: B | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Autism spectrum disorder</div>
+                <div class="opt-expl">The child exhibits appropriate social engagement, such as smiling when called and looking at the mother, which makes ASD unlikely.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Isolated motor development delay</div>
+                <div class="opt-expl">The child has achieved fine motor (pincer grasp) and social milestones appropriate for 11 months, but shows a delay in gross motor development (inability to sit from a lying position).</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Cerebral palsy</div>
+                <div class="opt-expl">While CP involves motor delay, there is no mention of abnormal muscle tone, reflexes, or asymmetry that would define a diagnosis of CP at this stage.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Visual impairment</div>
+                <div class="opt-expl">The child is able to pick up raisins (fine motor) and look at the mother, suggesting intact visual function.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Normal developmental milestones</div>
+                <div class="opt-expl">An 11-month-old should be able to sit independently and transition from lying to sitting; therefore, the child is not meeting all age-appropriate milestones.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_c75a5ec8e391</span></div>
+            </div>
+            <div class="stem">What are the negative symptoms of schizophrenia?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Negative symptoms of schizophrenia refer to the loss or diminution of normal functions. The primary negative symptoms include affective flattening (which manifests as poor eye contact and reduced facial expression), alogia (poverty of speech), avolition (lack of motivation), anhedonia (inability to experience pleasure), and asociality (impaired intimacy/social withdrawal).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified the negative symptoms of schizophrenia (A, C, D, E) based on established psychiatric diagnostic criteria, while the database failed to provide any answer.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: A, C, D, E | Resolved: A, C, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Anhedoina</div>
+                <div class="opt-expl">Anhedonia is the inability to experience pleasure from activities usually found enjoyable, a hallmark negative symptom.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Bizzare behaviour</div>
+                <div class="opt-expl">Bizarre or disorganized behavior is classified as a positive symptom (specifically under disorganized symptoms), not a negative symptom.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Impaired intimacy</div>
+                <div class="opt-expl">This refers to asociality, the lack of interest in social interactions and impaired ability to form close relationships.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Poor eye contact</div>
+                <div class="opt-expl">Poor eye contact is a clinical manifestation of affective flattening (blunted affect), which is a core negative symptom.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Poverty of speech</div>
+                <div class="opt-expl">Also known as alogia, this is the reduction in the amount of speech or the poverty of content in speech.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_c547e60ad367</span></div>
+            </div>
+            <div class="stem">70-year-old male presented to the psychiatry clinic with history of loss of recent memory for the last five months. Which of the following symptoms are more suggestive of Alzheimer’s dementia?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Alzheimer's disease is characterized by early, progressive impairment in episodic memory, followed by language deficits (anomia), executive dysfunction, and visuospatial impairment.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The question asks for symptoms suggestive of Alzheimer's dementia. While behavioral symptoms (A, D, E) can occur, they are non-specific and often appear later. Anomia (B) is a core cognitive deficit directly linked to the neurodegenerative process of Alzheimer's disease, making it the most clinically suggestive option.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: E | AI: B | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Agitated behavior</div>
+                <div class="opt-expl">Agitation is a behavioral and psychological symptom of dementia (BPSD) that typically occurs in the middle to late stages, not as a core diagnostic feature.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Difficulty in naming objects</div>
+                <div class="opt-expl">Anomia (difficulty naming objects) is a hallmark early-to-mid stage cognitive symptom of Alzheimer's disease, reflecting the progressive cortical atrophy, particularly in the temporal and parietal lobes.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Persistent lack of mood</div>
+                <div class="opt-expl">Depression can be comorbid with dementia, but it is not a core cognitive symptom of Alzheimer's disease.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Suspicion on his wife’s fidelity</div>
+                <div class="opt-expl">Delusions of infidelity (Othello syndrome) can occur in dementia but are not specific to Alzheimer's and are more common in other conditions like Lewy body dementia or frontotemporal dementia.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Wandering behavior</div>
+                <div class="opt-expl">Wandering is a behavioral symptom associated with advanced stages of dementia and is not a primary diagnostic indicator compared to cognitive deficits like anomia.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_c3621bdc3588</span></div>
+            </div>
+            <div class="stem">A 13-year-old boy came to the clinic. His mother states that he frequently argues with elders, purposely breaks rules at school and home, and says things that are hurtful and annoy his parents. Also, he is often spiteful, and plans revenge that injustice happened to him by his siblings. What is the diagnosis?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The patient exhibits a pattern of angry/irritable mood, argumentative/defiant behavior, and vindictiveness lasting at least 6 months, which is characteristic of Oppositional Defiant Disorder (ODD).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation describes the classic triad of ODD symptoms: angry/irritable mood, argumentative/defiant behavior, and vindictiveness. Conduct disorder is excluded because the patient does not exhibit the severe antisocial behaviors (aggression to people/animals, destruction of property, theft) required for that diagnosis.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: C | AI: D | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Antisocial personality disorder</div>
+                <div class="opt-expl">Cannot be diagnosed before age 18; requires a history of conduct disorder before age 15.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Autism spectrum disorder</div>
+                <div class="opt-expl">The symptoms described are behavioral/oppositional rather than deficits in social communication and restricted/repetitive patterns of behavior.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Conduct disorder</div>
+                <div class="opt-expl">Conduct disorder involves more severe behaviors such as aggression toward people/animals, destruction of property, deceitfulness, or serious rule violations (e.g., theft, running away). The symptoms here are limited to defiance and spitefulness.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Oppositional defiant disorder</div>
+                <div class="opt-expl">The patient meets the DSM-5 criteria for ODD: frequent arguing, defiance of rules, annoying others, and vindictiveness.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Typical Adolescent Behavior</div>
+                <div class="opt-expl">While some defiance is common in adolescence, the persistence and intensity of these behaviors (spitefulness, planned revenge) exceed the threshold of typical development.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_b994a72c4ef0</span></div>
+            </div>
+            <div class="stem">Recognized risk factors of Alzheimer’s disease,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Alzheimer's disease (AD) is a multifactorial neurodegenerative disorder. Established risk factors include metabolic conditions (diabetes, hypertension), vascular factors, and specific genetic markers (APOE-ε4).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified the three established risk factors (A, B, D) while correctly excluding the protective factor (C) and the inverse risk factor (E). The 'conflict' noted in the prompt likely stems from an incomplete source database, as these are standard, widely accepted clinical risk factors.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not specified in source | AI: A, B, D | Resolved: A, B, D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Diabetes mellitus</div>
+                <div class="opt-expl">Type 2 diabetes is a well-established risk factor for AD, likely due to insulin resistance and chronic inflammation affecting neuronal health.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Elevated homocysteine levels</div>
+                <div class="opt-expl">Hyperhomocysteinemia is associated with increased risk of cognitive decline and AD, potentially through vascular damage and neurotoxicity.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Apolipoprotein E2 allele</div>
+                <div class="opt-expl">The APOE-ε2 allele is considered protective against AD, whereas the APOE-ε4 allele is the primary genetic risk factor.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Hypertension</div>
+                <div class="opt-expl">Midlife hypertension is a significant modifiable risk factor for the development of late-life dementia and AD.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. High intelligence</div>
+                <div class="opt-expl">High intelligence (cognitive reserve) is associated with a lower risk of clinical manifestation of AD, not an increased risk.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-diff">Different</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_b6c40fb79fee</span></div>
+            </div>
+            <div class="stem">Regarding antidepressants,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Antidepressant pharmacology involves distinct side effect profiles, particularly regarding SIADH/hyponatremia risk, withdrawal syndromes, and cardiovascular safety.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The question contains two factually correct statements (A and C). Clomipramine is a classic treatment for OCD, and Mirtazapine is well-documented for its lack of SIADH risk compared to SSRIs. Option B is technically true due to the long half-life of fluoxetine, but A and C are more robust clinical facts.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, D | AI: A, B, D | Resolved: A, C]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Clomipramine is useful in the treatment of OCD</div>
+                <div class="opt-expl">Clomipramine is a potent tricyclic antidepressant with high serotonin reuptake inhibition, making it a gold-standard treatment for OCD.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Fluexatine has minimal withdrawal effect.</div>
+                <div class="opt-expl">Fluoxetine has a very long half-life and active metabolites, which minimizes withdrawal symptoms, but the statement is often considered a relative truth; however, compared to other options, A and C are more clinically definitive.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Mirtazapine has a low propensity to cause hyponatremia</div>
+                <div class="opt-expl">Unlike SSRIs/SNRIs, Mirtazapine is not associated with the same risk of SIADH-induced hyponatremia, making it a safer choice in patients prone to this electrolyte disturbance.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Sertraline is known to cause major bleeding diathesis</div>
+                <div class="opt-expl">SSRIs can increase the risk of upper GI bleeding due to platelet serotonin depletion, but 'major bleeding diathesis' is an overstatement of the clinical risk.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Venlafrexin is a safe option in cardiac disease</div>
+                <div class="opt-expl">Venlafaxine, especially at higher doses, can cause dose-dependent increases in blood pressure and heart rate, requiring caution in cardiac patients.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_a4f069dd11d5</span></div>
+            </div>
+            <div class="stem">A patient with bipolar affective disorder has taken overdose his lithium tablets. He presented with coarse tremor and ataxia. What is the most important immediate step of management?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Lithium toxicity management prioritizes aggressive fluid resuscitation to restore renal perfusion and enhance lithium excretion, as lithium is primarily excreted by the kidneys.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> In acute lithium toxicity, the immediate priority is medical stabilization. Fluid resuscitation with normal saline is the standard of care to restore GFR and facilitate renal excretion of lithium. While serum levels are necessary for diagnosis and monitoring, they do not take precedence over initiating life-saving fluid therapy.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: C | Resolved: C]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Monitor urine output</div>
+                <div class="opt-expl">While important for monitoring, it is a supportive measure, not the primary therapeutic intervention.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Obtain serum lithium level urgently</div>
+                <div class="opt-expl">Diagnostic, but does not address the immediate physiological threat of toxicity and dehydration.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. start intra venous normal saline</div>
+                <div class="opt-expl">Aggressive volume expansion with isotonic saline is the first-line treatment to correct dehydration and promote renal lithium clearance.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. start sodium valproate</div>
+                <div class="opt-expl">This is contraindicated or irrelevant in the acute management of lithium toxicity.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. take a proper history to exclude suicidal risk</div>
+                <div class="opt-expl">Important for long-term management, but secondary to stabilizing the patient's acute medical condition.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_a448ad19cd80</span></div>
+            </div>
+            <div class="stem">Features of narcolepsy</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Narcolepsy (specifically Type 1) is characterized by the classic tetrad of excessive daytime sleepiness, cataplexy, sleep paralysis, and hypnagogic/hypnopompic hallucinations, resulting from hypocretin deficiency.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation of narcolepsy is well-defined by the tetrad of symptoms listed in options A, B, D, and E. Bruxism (Option C) is unrelated to the pathophysiology of narcolepsy.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: C | AI: A, B, D, E | Resolved: A, B, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Sleep paralysis</div>
+                <div class="opt-expl">A common symptom of narcolepsy involving the temporary inability to move while falling asleep or waking up.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. cataplexy</div>
+                <div class="opt-expl">Sudden loss of muscle tone triggered by strong emotions; a pathognomonic feature of Type 1 narcolepsy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Bruxism</div>
+                <div class="opt-expl">Bruxism (teeth grinding) is a sleep-related movement disorder, not a diagnostic feature of narcolepsy.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Daytime sleepiness</div>
+                <div class="opt-expl">Excessive daytime sleepiness (EDS) is the primary and most consistent symptom of narcolepsy.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Hypnagogic hallucinations</div>
+                <div class="opt-expl">Vivid, dream-like hallucinations occurring at sleep onset, frequently reported by patients with narcolepsy.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_9309dda0b4f7</span></div>
+            </div>
+            <div class="stem">Features of obsessive thoughts,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Obsessions are defined as recurrent, intrusive, unwanted thoughts, urges, or images that are recognized as the individual's own (ego-dystonic) and are typically resisted or suppressed by the individual.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical definition of obsessions universally includes that they are intrusive (A), recognized as one's own (B), and resisted (E). Options C and D are clinically incorrect as obsessions are ego-dystonic and distressing.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not specified in source | AI: A, B, E | Resolved: A, B, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. It intrudes into the mind repetitively</div>
+                <div class="opt-expl">Obsessions are characterized by their intrusive and repetitive nature.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. It is identified as individual's own idea</div>
+                <div class="opt-expl">A hallmark of obsessions is that they are recognized as the product of one's own mind, rather than externally imposed (unlike delusions).</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Thoughts are usually enjoyable</div>
+                <div class="opt-expl">Obsessions are ego-dystonic and typically cause significant anxiety or distress, not enjoyment.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Individual considers the thoughts as useful</div>
+                <div class="opt-expl">Obsessions are perceived as senseless, intrusive, and unwanted; they are not considered useful.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Thoughts are resisted by individual himself</div>
+                <div class="opt-expl">The individual typically makes an effort to ignore, suppress, or neutralize the intrusive thoughts.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_90a3f3662f3f</span></div>
+            </div>
+            <div class="stem">45-year-old male who is consuming alcohol developed craving for alcohol and tolerance. According to ICD-10 diagnostic criteria, what is the statement best suggestive that he is suffering from alcohol dependant syndrome?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> ICD-10 criteria for Alcohol Dependence Syndrome require at least three of six specific features: strong desire/craving, difficulty in controlling substance-taking behavior, physiological withdrawal state, evidence of tolerance, progressive neglect of alternative pleasures/interests, and persistence despite clear evidence of harmful consequences.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The ICD-10 explicitly lists 'a narrowing of the personal repertoire of patterns of substance use' as one of the six diagnostic criteria for dependence syndrome. Option A describes a phenomenon related to withdrawal but is not the formal criterion itself. Option E is a direct, verbatim component of the ICD-10 diagnostic criteria.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A | AI: E | Resolved: E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Withdrawal symptoms appear with gradual reduction of amount of alcohol consumption</div>
+                <div class="opt-expl">While withdrawal is a criterion, the specific phrasing 'gradual reduction' is not the diagnostic definition; withdrawal occurs upon cessation or reduction of intake.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Angry when advising about alcohol use</div>
+                <div class="opt-expl">This is a behavioral reaction or defense mechanism, not a diagnostic criterion for dependence.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Guilt over his current condition</div>
+                <div class="opt-expl">Guilt is a psychological symptom that may accompany substance use but is not a diagnostic criterion for dependence.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Take alcohol right after waking</div>
+                <div class="opt-expl">This is a sign of severe dependence (morning drinking to avoid withdrawal), but it is a manifestation rather than the formal diagnostic criterion itself.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Narrowing of the drinking repertoire</div>
+                <div class="opt-expl">The 'narrowing of the drinking repertoire' (a stereotyped pattern of drinking that overrides other activities) is one of the six core ICD-10 diagnostic criteria for dependence syndrome.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_8012d84ddd3d</span></div>
+            </div>
+            <div class="stem">Characteristic features of dementia with lewy body?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Dementia with Lewy bodies (DLB) is a common neurodegenerative disorder characterized by fluctuating cognition, visual hallucinations, parkinsonism, and REM sleep behavior disorder. It's crucial to differentiate it from Alzheimer's disease and Parkinson's disease dementia.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified recurrent visual hallucinations and repeated falls as core features of DLB. While fluctuating attention (leading to inattention) is also a key feature, the 'recurrent visual hallucination' and 'repeated falls' are more definitive and consistently present in DLB than persistent inattention alone. The AI's assessment of the other options (dyskinesia, intention tremor) is also accurate.
+                <br><br><strong>Resolved By:</strong> gemma-3-27b-it
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: C, D, E | Resolved: C, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Dyskinesia</div>
+                <div class="opt-expl">Dyskinesias are more commonly associated with Parkinson's disease *with* long-term levodopa use, not typically a core feature of DLB itself. While parkinsonism is present, it doesn't usually manifest as dyskinesia early on.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Intension tremor</div>
+                <div class="opt-expl">Intention tremor is more characteristic of cerebellar dysfunction or Parkinson's disease. DLB typically presents with bradykinesia and rigidity, but not a prominent intention tremor.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Persistent inattention</div>
+                <div class="opt-expl">Fluctuating attention and alertness are core features of DLB. Patients can experience periods of relative clarity interspersed with confusion and inattention. However, 'persistent' is less specific than 'fluctuating' and therefore less defining.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Recurrent visual hallucination</div>
+                <div class="opt-expl">Recurrent, well-formed, and detailed visual hallucinations are a hallmark of DLB. These hallucinations are often of people or animals and occur early in the disease course.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Repeated falls</div>
+                <div class="opt-expl">Postural instability and autonomic dysfunction are common in DLB, leading to an increased risk of falls. This is related to the parkinsonian features and potential orthostatic hypotension.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_7e5c8dd0dbe7</span></div>
+            </div>
+            <div class="stem">55 year old male patient is diagnosed with recurrent depressive disorder. He is referred to you for further follow up.What is the most potent predictor of future recurrence of his depressive disorder.</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The number of prior depressive episodes is the most robust and consistent predictor of future recurrence in patients with recurrent depressive disorder.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified that the number of previous episodes is the most potent predictor of recurrence. While residual symptoms are a major risk factor for relapse, the 'number of prior episodes' is the classic, most cited predictor for the recurrence of major depressive disorder in psychiatric literature.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: D | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Early age of onset</div>
+                <div class="opt-expl">While early onset is a risk factor for a chronic course, it is not as strong a predictor of recurrence as the number of prior episodes.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Family hx of depression</div>
+                <div class="opt-expl">Family history is a risk factor for developing the disorder, but it is not the primary predictor of recurrence once the disorder is established.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Having hypersomnia</div>
+                <div class="opt-expl">Atypical features like hypersomnia are associated with specific subtypes of depression but are not the most potent predictor of recurrence.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Previous depressive episodes</div>
+                <div class="opt-expl">Clinical literature consistently identifies the number of previous episodes as the single most significant predictor of future recurrence; the risk increases significantly with each subsequent episode.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Presence of residual symptoms</div>
+                <div class="opt-expl">Residual symptoms are a strong predictor of relapse (return of the current episode), but the number of prior episodes remains the strongest predictor of recurrence (a new episode).</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-human">Human Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_7c19bc9a1ba8</span></div>
+            </div>
+            <div class="stem">Regarding drugs used in the treatment of depression</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Antidepressants have distinct pharmacological profiles, side effect burdens, and clinical indications. Tricyclics (TCAs) like imipramine are a classic class, while mirtazapine is well-known for its metabolic side effects, including weight gain and increased appetite.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI failed to identify that both A and E are factually correct statements. Imipramine is a classic TCA, and weight gain is a hallmark side effect of mirtazapine. The human input correctly identified both, whereas the AI missed the validity of E.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, C, E | AI: A, E | Resolved: A, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Imipramine is a tricycle antidepressant</div>
+                <div class="opt-expl">Imipramine is the prototype of the tricyclic antidepressant (TCA) class.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Venlafaxine provides immediate relief from symptoms</div>
+                <div class="opt-expl">Like all antidepressants, venlafaxine requires several weeks (typically 2-4 weeks) to achieve a therapeutic effect; it does not provide immediate relief.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Sertraline is contraindicated in depressive episodes of bipolar disorder</div>
+                <div class="opt-expl">While there is a risk of mood switching, SSRIs like sertraline are not strictly contraindicated in bipolar depression, though they are generally recommended to be used with a mood stabilizer.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Fluoxetine is contraindicated in childhood depression</div>
+                <div class="opt-expl">Fluoxetine is actually one of the few antidepressants FDA-approved for the treatment of major depressive disorder in children and adolescents.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Mirtazapine causes weight gain.</div>
+                <div class="opt-expl">Mirtazapine is well-documented to cause significant weight gain and increased appetite due to its antagonism of H1 histamine receptors and 5-HT2C receptors.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_792b57a18fe1</span></div>
+            </div>
+            <div class="stem">The following conditions that are associated with OCD</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Obsessive-Compulsive Disorder (OCD) is frequently comorbid with neurodevelopmental and post-infectious autoimmune conditions involving basal ganglia dysfunction.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Options B, C, D, and E are all clinically recognized associations with OCD. Tourette's is a classic comorbidity, while C, D, and E represent the spectrum of post-infectious/autoimmune basal ganglia disorders linked to OCD (PANDAS/PANS spectrum).
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: B, C, D, E | Resolved: B, C, D, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Cerebellar haemorrhage</div>
+                <div class="opt-expl">Cerebellar hemorrhage typically presents with ataxia, vertigo, and vomiting, not OCD.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. De la tourette syndrome</div>
+                <div class="opt-expl">There is a high rate of comorbidity between Tourette syndrome and OCD, sharing common neurobiological pathways in the cortico-striato-thalamo-cortical circuits.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Enchepalitis lethargica</div>
+                <div class="opt-expl">Historical cases of encephalitis lethargica were frequently associated with the development of post-encephalitic parkinsonism and obsessive-compulsive behaviors.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. streptococcus infections</div>
+                <div class="opt-expl">PANDAS (Pediatric Autoimmune Neuropsychiatric Disorders Associated with Streptococcal infections) is a well-documented condition where streptococcal infection triggers the sudden onset of OCD.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Sydenham's chorea</div>
+                <div class="opt-expl">Sydenham's chorea, a manifestation of rheumatic fever, is strongly associated with the development of OCD symptoms due to autoimmune basal ganglia involvement.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_78bbb4a5e67c</span></div>
+            </div>
+            <div class="stem">Regarding deliberate self-harm (DSH)</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Deliberate self-harm (DSH) is a significant public health concern, particularly among youth, where mood disorders like depression are major risk factors for suicidal ideation and attempts.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Option E is a universally accepted clinical fact in psychiatry. Option A is incorrect regarding Sri Lankan demographics (where males predominate), and Option B is outdated/incorrect in the context of modern clinical practice and legal trends.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not specified in source | AI: A, E | Resolved: E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Females carry out more DSH than males in Sri Lanka.</div>
+                <div class="opt-expl">In Sri Lanka, epidemiological data historically shows higher rates of DSH and completed suicide among males compared to females.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. DSH is punishable by law in Sri Lanka.</div>
+                <div class="opt-expl">While attempted suicide was historically criminalized under the Penal Code of Sri Lanka, recent legal reforms and policy shifts have moved toward decriminalization and prioritizing mental health support.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. DSH is commonly seen among people who are older than 65 years</div>
+                <div class="opt-expl">DSH is most prevalent among adolescents and young adults, not the elderly population.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Increasement in suicidal attempts is associated with lowering the risk of DSH</div>
+                <div class="opt-expl">A history of suicidal attempts is one of the strongest predictors for future DSH and completed suicide.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Depression among young people increases the suicidal risk</div>
+                <div class="opt-expl">Depression is a well-established, significant risk factor for suicidal behavior and DSH in the youth population.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_6296f45e5d0f</span></div>
+            </div>
+            <div class="stem">16 yrs old boy presented to the hospital with his mother complaining talkative,aggressive behavior,singing loud voice,difficult in sleeping,after examine reveal that he was addicted to cannabis,He refused to admit to the hospital.What is the management of this patient?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> A 16-year-old male presents with symptoms suggestive of cannabis-induced psychosis (talkativeness, aggression, loud singing, insomnia). He has a history of cannabis addiction and refuses hospitalization.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The scenario describes a patient with cannabis-induced psychosis who is refusing admission. The most appropriate initial step is to address the underlying addiction through a rehabilitation center. Options involving forced medication or police intervention are inappropriate and unethical given the information provided. The AI correctly identified the most suitable management strategy.
+                <br><br><strong>Resolved By:</strong> gemma-3-27b-it
+                <br><strong>Verdict Trace:</strong> [Human: D | AI: E | Resolved: A]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Advice mother to take him to rehabilitation center.</div>
+                <div class="opt-expl">Given the patient's refusal of admission and the primary issue being substance use, recommending a rehabilitation center is the most appropriate first step. This addresses the underlying addiction and provides a structured environment for recovery. It respects the patient's autonomy while still attempting to provide care.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Call the police for help.</div>
+                <div class="opt-expl">Calling the police is not indicated unless the patient poses an immediate danger to himself or others. This situation doesn't describe an emergency requiring police intervention. It could also escalate the situation and damage rapport.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Forcibly admit him to the ward for treatment.</div>
+                <div class="opt-expl">Forcibly admitting a patient requires legal justification (e.g., imminent danger to self or others) which isn't clearly stated in the scenario.  A 16-year-old's refusal of treatment carries weight, and involuntary admission should be a last resort.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Offer and oral antipsychotic such as olanzapine 10mg bd and review next day.</div>
+                <div class="opt-expl">While antipsychotics *might* be considered later, initiating treatment without addressing the underlying cannabis use is not the primary approach.  Also, prescribing medication to a refusing patient is problematic. It doesn't address the root cause and could mask the symptoms without resolving the addiction.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Offer him parenteral treatment such as haloperidol 10mg IM with Midazolum 5mg stat while he is at the OPD.</div>
+                <div class="opt-expl">Administering parenteral medication (IM haloperidol and midazolam) against a patient's will in an outpatient setting is highly inappropriate, unethical, and potentially illegal. It's a forceful intervention that is not justified by the presented information and carries significant risks.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_61c9eba37072</span></div>
+            </div>
+            <div class="stem">What are the features of opositional defiant disorder?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Oppositional Defiant Disorder (ODD) is characterized by a persistent pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness lasting at least 6 months, specifically involving defiance toward authority figures.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Option B directly aligns with the DSM-5-TR criteria for ODD (argumentative/defiant behavior). Option A is non-specific and often associated with more severe disruptive disorders (Conduct Disorder or Intermittent Explosive Disorder). Therefore, B is the most accurate clinical answer.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: A, B | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Aggressive outbursts at home</div>
+                <div class="opt-expl">While irritability is a feature, 'aggressive outbursts' are more characteristic of Intermittent Explosive Disorder or Conduct Disorder; ODD focuses on defiance and argumentativeness.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Going against parent instructions</div>
+                <div class="opt-expl">A core diagnostic criterion for ODD is the frequent arguing with authority figures and active defiance or refusal to comply with requests or rules from adults/parents.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Inability to stay focused in the classroom</div>
+                <div class="opt-expl">This is a hallmark symptom of ADHD, not ODD.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Poor reading ability</div>
+                <div class="opt-expl">This is a feature of a specific learning disorder, not ODD.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Violating the rights of others</div>
+                <div class="opt-expl">This is the defining characteristic of Conduct Disorder, which is more severe than ODD.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_5ad05743d5a8</span></div>
+            </div>
+            <div class="stem">30 year old woman is having temporary episodes of loss of memory, confusion. She is the victim of domestic violence.What is the most probable disorder?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Dissociative amnesia is characterized by the inability to recall important personal information, usually of a traumatic or stressful nature, that is too extensive to be explained by ordinary forgetfulness. It is highly associated with histories of severe trauma, such as domestic violence.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation of memory loss and confusion in a victim of domestic violence is a hallmark of dissociative disorders. Among the choices, Dissociative Amnesia is the most accurate diagnosis for the specific symptom of memory loss related to trauma, whereas the other options describe either neurological conditions or more complex/specific dissociative subtypes not fully supported by the prompt.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: C | Resolved: C]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Complex partial seizure</div>
+                <div class="opt-expl">While seizures can cause confusion and memory gaps, the context of domestic violence strongly points toward a psychogenic etiology rather than an ictal event.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Dissociative depersonalization & derealization</div>
+                <div class="opt-expl">This involves feelings of detachment from oneself or the environment, rather than the primary symptom of memory loss.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Dissociative amnesia</div>
+                <div class="opt-expl">The patient's presentation of temporary memory loss and confusion in the setting of chronic trauma (domestic violence) is the classic clinical manifestation of dissociative amnesia.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Dissociative fugue</div>
+                <div class="opt-expl">Fugue involves purposeful travel or bewildered wandering associated with amnesia for one's identity, which is not described here.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Dissociative identity disorder</div>
+                <div class="opt-expl">Requires the presence of two or more distinct personality states, which is not indicated by the brief description of memory loss and confusion.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_564fcbbca37b</span></div>
+            </div>
+            <div class="stem">74-years man developed restlessness while being on treatment for bronchopneumonia. What is the clinical feature suggestive of delirium?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> A 74-year-old man developed restlessness during treatment for bronchopneumonia. The question asks for a clinical feature suggestive of delirium.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Delirium is fundamentally a disturbance in attention and arousal, manifesting as a reduced clarity of awareness – 'clouding of consciousness'. While disorientation, memory impairment, and hallucinations can occur, they are secondary to the primary disturbance in consciousness. The other options are less central to the diagnostic criteria for delirium. The patient's restlessness suggests an altered mental state, making clouding of consciousness the most suggestive feature.
+                <br><br><strong>Resolved By:</strong> gemma-3-27b-it
+                <br><strong>Verdict Trace:</strong> [Human: B | AI: B, C, D, E | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Apraxia</div>
+                <div class="opt-expl">Apraxia is a motor skill deficit, often seen in neurological conditions like stroke or dementia, and is not a core feature of delirium. While it *can* occur in delirium, it's not a primary indicator.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. clouding of consciousness</div>
+                <div class="opt-expl">Clouding of consciousness refers to a reduced clarity of awareness of the environment. This is a hallmark feature of delirium, representing a disturbance in attention and arousal. Restlessness can be a manifestation of this altered level of consciousness.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. disorientate in place</div>
+                <div class="opt-expl">Disorientation to place is common in delirium, but 'disorientate in place' is not standard terminology. Disorientation is a *result* of the altered consciousness, not a primary feature defining delirium itself.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Memory impairment</div>
+                <div class="opt-expl">Memory impairment is common in delirium, *particularly* recent memory, but it's often fluctuating and related to the impaired attention. It's not as fundamental a feature as altered consciousness.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Tactile hallucination</div>
+                <div class="opt-expl">Tactile hallucinations can occur in delirium, especially in severe cases (like delirium tremens), but they are not a consistent or defining feature. They are more commonly associated with other conditions like substance withdrawal or severe psychiatric illness.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_4f480bde967b</span></div>
+            </div>
+            <div class="stem">A 36 yr old farmer presented to the ward with bipolar disease. His liver enzyme levels are high. What is the most appropriate immediate treatment?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Management of bipolar disorder in a patient with hepatic impairment (indicated by elevated liver enzymes).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical vignette provides a specific clue: 'high liver enzyme levels.' In medical board examinations, this is a standard way to test the student's knowledge of drug metabolism. The goal is to identify which medication is not metabolized by the liver. Lithium is excreted renally and is the gold standard for bipolar disorder when hepatic metabolism must be avoided. Valproate and Carbamazepine are hepatotoxic, and while Olanzapine and Lamotrigine are used in bipolar disorder, they are metabolized by the liver. Therefore, Lithium is the most appropriate choice to avoid exacerbating liver dysfunction.
+                <br><br><strong>Resolved By:</strong> gemma-4-26b-a4b-it
+                <br><strong>Verdict Trace:</strong> [Human: E | AI: A | Resolved: A]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. lithium</div>
+                <div class="opt-expl">Lithium is the most appropriate choice because it is primarily excreted by the kidneys and does not undergo hepatic metabolism. In patients with elevated liver enzymes or hepatic dysfunction, lithium avoids the risk of further hepatotoxicity and does not rely on the liver for clearance.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. valproate</div>
+                <div class="opt-expl">Valproate is highly metabolized by the liver and is known to cause dose-dependent hepatotoxicity. It is contraindicated or should be used with extreme caution in patients with existing liver enzyme elevation.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. carbermazepine</div>
+                <div class="opt-expl">Carbamazepine is metabolized by the liver (CYP450 system) and can cause liver enzyme elevation and hepatotoxicity, making it inappropriate for a patient with already high liver enzymes.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. lamotrigine</div>
+                <div class="opt-expl">Lamotrigine is metabolized by the liver (glucuronidation). While generally safer than valproate, it still requires hepatic metabolism and is not the preferred choice when avoiding hepatic load is the priority.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. olanazopin</div>
+                <div class="opt-expl">Olanzapine is an atypical antipsychotic metabolized by the liver (primarily CYP1A2). While it can be used in acute mania, the specific mention of high liver enzymes in a medical exam context is a classic pointer to select a drug that bypasses hepatic metabolism (Lithium).</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_43ecd1451d55</span></div>
+            </div>
+            <div class="stem">Regarding antipsychotics</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Olanzapine is highly effective for psychosis but is associated with significant metabolic risks, including weight gain, dyslipidemia, and insulin resistance, which often limit its long-term clinical utility.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Option D is the most clinically accurate statement. While some antipsychotics are used for depression augmentation (A), it is not their primary role. Option B is incorrect because akathisia is manageable and does not preclude the widespread use of aripiprazole. Option C is a common misconception (except for clozapine). Option E is incorrect as negative symptoms are notoriously resistant to antipsychotic treatment.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: D | AI: A, B, D, E | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Antipsychotics are known to have a role in treatment of depression without psychotic symptoms</div>
+                <div class="opt-expl">While some atypical antipsychotics (e.g., aripiprazole, quetiapine) are used as augmentation agents for treatment-resistant depression, they are not first-line treatments for depression without psychotic symptoms.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Aripiprazole usage is limited due to development of akathisia</div>
+                <div class="opt-expl">While akathisia is a common side effect of aripiprazole, it does not 'limit' its usage in the way metabolic syndrome limits olanzapine; aripiprazole is widely used due to its favorable metabolic profile.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Atypical antipsychotics have higher efficacy than typical</div>
+                <div class="opt-expl">With the exception of clozapine, most atypical antipsychotics have comparable efficacy to typical antipsychotics in treating positive symptoms.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Cardio metabolic side effects limits the use of olanzapine</div>
+                <div class="opt-expl">Olanzapine is notorious for causing significant weight gain and metabolic disturbances, which are major clinical considerations that often lead clinicians to choose other agents.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Negative symptoms in schizophrenia can be treated effectively with antipsychotics</div>
+                <div class="opt-expl">Negative symptoms (e.g., apathy, social withdrawal) remain notoriously difficult to treat with current antipsychotic medications, which primarily target positive symptoms.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_36f8db1c22c5</span></div>
+            </div>
+            <div class="stem">How can be differentiate delusion from schizophrenia</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The primary clinical distinction between Delusional Disorder and Schizophrenia is the level of functional impairment. In Delusional Disorder, psychosocial functioning is generally preserved and behavior is not obviously bizarre outside the context of the delusion. In contrast, Schizophrenia requires significant impairment in one or more major areas of functioning (work, interpersonal relations, or self-care) and typically involves other psychotic symptoms like hallucinations or disorganized speech.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified that functional impairment is the key differentiator between Delusional Disorder and Schizophrenia according to standard psychiatric diagnostic criteria (DSM-5). The source text provided no answer, making the AI's clinically accurate response the correct one.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: B | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. content of the delusion</div>
+                <div class="opt-expl">While schizophrenia is more likely to feature 'bizarre' delusions, both disorders can share similar delusional themes (e.g., persecutory, grandiose), making content alone an unreliable differentiator.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. how it affect the function of patient</div>
+                <div class="opt-expl">This is a hallmark difference; patients with Delusional Disorder typically maintain a high level of functioning, whereas patients with schizophrenia experience significant functional decline.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. associated with depression</div>
+                <div class="opt-expl">Mood symptoms can be comorbid with both Delusional Disorder and Schizophrenia (e.g., Schizoaffective disorder), so this does not differentiate the two.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. having only one delusion</div>
+                <div class="opt-expl">Delusional Disorder can involve a single delusion or multiple delusions; the number of delusions is not the diagnostic separator.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. onset at 5th decade of life</div>
+                <div class="opt-expl">While Delusional Disorder often has a later onset than schizophrenia, onset age is a trend rather than a definitive diagnostic criterion for differentiation.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_311e66c514df</span></div>
+            </div>
+            <div class="stem">What is the immediate management of a 46 year old male with alcohol induce liver disease present with aggressive behavior due to alcohol withdrawal?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> N/A
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The patient is presenting with aggressive behavior specifically due to alcohol withdrawal in the context of alcohol-induced liver disease. The gold standard for managing alcohol withdrawal is benzodiazepines, as they treat the underlying cause and prevent complications such as seizures and delirium tremens. In an aggressive patient, a rapid-acting route (IV) is required for immediate management. Furthermore, in patients with liver disease, short-acting benzodiazepines (such as midazolam, lorazepam, or oxazepam) are preferred over long-acting ones (like diazepam) because they do not have active metabolites that accumulate in the liver, reducing the risk of prolonged sedation or hepatic encephalopathy. Antipsychotics like haloperidol (Option D) are generally avoided as first-line treatment for alcohol withdrawal because they lower the seizure threshold, which is dangerous in a patient already at high risk for withdrawal seizures.
+                <br><br><strong>Resolved By:</strong> N/A
+                <br><strong>Verdict Trace:</strong> [Human: D | AI: E | Resolved: E]
+            </div>
+
+            <div class="options-grid">
+                
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_2c6cc0d130cf</span></div>
+            </div>
+            <div class="stem">A 36 yr. old farmer presented to the ward with bipolar disease. His liver enzyme levels are high. What is the most appropriate immediate treatment?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> In a patient with bipolar disorder and pre-existing elevated liver enzymes (hepatotoxicity), mood stabilizers that are hepatotoxic (Valproate, Carbamazepine) should be avoided. Lithium is renally excreted but generally safe for the liver, though Olanzapine is a common, safe alternative in this context.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified that Valproate and Carbamazepine are contraindicated due to hepatotoxicity. While Lithium is not hepatotoxic, Olanzapine is a standard, safe, and effective treatment for acute bipolar symptoms in patients with liver impairment, whereas the other options (Valproate, Carbamazepine, Lamotrigine) pose significant risks to liver function.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: E | AI: A | Resolved: E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. lithium</div>
+                <div class="opt-expl">While lithium is not hepatotoxic, it is not the most appropriate choice if the patient has renal concerns or if a rapid-acting antipsychotic is preferred for acute stabilization.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. valproate</div>
+                <div class="opt-expl">Valproate is well-known for causing hepatotoxicity and is contraindicated in patients with pre-existing liver enzyme elevation.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. carbamazepine</div>
+                <div class="opt-expl">Carbamazepine is associated with hepatotoxicity and induces liver enzymes, making it inappropriate for this patient.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. lamotrigine</div>
+                <div class="opt-expl">Lamotrigine is metabolized by the liver and can cause drug-induced liver injury; it is also not indicated for acute mania.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. olanzapine</div>
+                <div class="opt-expl">Olanzapine is an atypical antipsychotic that is effective for acute bipolar mania and does not carry the same risk of hepatotoxicity as valproate or carbamazepine, making it the safest choice among the options provided.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-diff">Different</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_238afd56cea3</span></div>
+            </div>
+            <div class="stem">Which of the following indicate serious intent of deliberate self-harm (DSH)?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Assessment of suicide risk involves identifying markers of high intent, which include planning, final arrangements, and a history of self-harm, rather than the presence of illness or lack of awareness.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The AI correctly identified B and C but missed E, which is a clinically established high-risk indicator. The DB included A and D, which are not indicators of 'serious intent' (A is a stressor, D is a lack of intent). The correct answer set includes B, C, and E.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: A, B, C, D, E | AI: A, B, C | Resolved: B, C, E]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Suffering from a terminal medical illness</div>
+                <div class="opt-expl">While a risk factor, it is a situational stressor rather than a direct indicator of 'serious intent' of the act itself.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Taking precautions to conceal the attempt</div>
+                <div class="opt-expl">Concealment indicates a deliberate effort to ensure the act is not interrupted, signifying high intent.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Intending to write a last will</div>
+                <div class="opt-expl">Making final arrangements like a will is a classic high-risk indicator of serious suicidal intent.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Not aware about the gravity of the act</div>
+                <div class="opt-expl">Lack of awareness regarding the lethality or gravity of an act suggests low intent or impulsivity, not serious intent.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">E. Previous attempts of DSH.</div>
+                <div class="opt-expl">A history of previous attempts is the single strongest predictor of future completed suicide and indicates serious intent.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_23130df30c5c</span></div>
+            </div>
+            <div class="stem">Which of the folowing is the best immediate treatment for a 36 year old man with alcoholic liver disease has become aggersive due to alcohol withdrawal.</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> In a patient with alcoholic liver disease presenting with acute agitation due to alcohol withdrawal, immediate parenteral sedation is required for safety. Benzodiazepines are the gold standard for withdrawal, but in a patient with liver disease, a short-acting agent like midazolam is preferred over long-acting agents like chlordiazepoxide to avoid accumulation and hepatic encephalopathy.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The conflict arises from the choice between a standard withdrawal agent (Chlordiazepoxide) and a safer agent for liver disease (Midazolam). In the context of an aggressive patient, oral medication is often impractical, and the long half-life of Chlordiazepoxide poses a significant risk of toxicity in patients with impaired hepatic metabolism.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: D | AI: A | Resolved: A]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. IM Medozolam</div>
+                <div class="opt-expl">Midazolam is a short-acting benzodiazepine that is safe for acute agitation in patients with liver disease as it has a shorter half-life and no active metabolites, reducing the risk of prolonged sedation or worsening encephalopathy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Oral haloperidol</div>
+                <div class="opt-expl">Antipsychotics lower the seizure threshold and are not the first-line treatment for alcohol withdrawal. Furthermore, oral administration is inappropriate for an aggressive, agitated patient.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. IV thiamine</div>
+                <div class="opt-expl">Thiamine is essential to prevent Wernicke's encephalopathy in alcohol withdrawal, but it does not treat the acute agitation or the withdrawal syndrome itself.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Oral Chlordiazepxoide</div>
+                <div class="opt-expl">Chlordiazepoxide is a long-acting benzodiazepine with active metabolites. It is contraindicated or used with extreme caution in patients with significant liver disease due to the risk of accumulation and hepatic encephalopathy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Oral Clonazepine</div>
+                <div class="opt-expl">Clonazepam is not the first-line treatment for acute alcohol withdrawal agitation, and oral administration is not suitable for an aggressive patient.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_22935ee8057a</span></div>
+            </div>
+            <div class="stem">A 75 years old woman was brought in by her daughter due to forgetfulness and irritability over the past year. She claimed that her children no longer love her and that being dead is better than living like this. The patient is living by herself and attends to housework on her own. The daughter reported that the woman wandered from home twice, saying that she felt lonely. On mental status examination, she avoided eye contact and there were long phases in her speech. Most of her answers were “I cant remember” and “ I don’t know”. What is the most likely diagnosis/ condition?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The patient presents with 'pseudodementia' secondary to geriatric depression, characterized by cognitive complaints ('I don't know'), lack of effort during testing, and depressive symptoms (irritability, feelings of being unloved, suicidal ideation).
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation is a textbook description of 'pseudodementia' caused by depression. The key indicators are the patient's 'I don't know' responses (lack of effort), the presence of depressive symptoms (feeling unloved, suicidal ideation), and the preservation of functional independence (housework), which strongly points away from a primary neurodegenerative dementia.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: B | AI: D | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Delusional disorder</div>
+                <div class="opt-expl">While she expresses feelings of being unloved, these are consistent with depressive cognitive distortions rather than a fixed, non-bizarre delusional system.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Dementia</div>
+                <div class="opt-expl">The patient's 'I don't know' responses and lack of effort are classic for pseudodementia. Furthermore, she is still able to attend to housework independently, which is inconsistent with the functional decline expected in moderate-to-severe dementia.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Delirium</div>
+                <div class="opt-expl">Delirium is characterized by an acute onset and fluctuating level of consciousness, which is not described here; the symptoms have persisted for a year.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Depression</div>
+                <div class="opt-expl">The patient exhibits classic signs of geriatric depression: irritability, feelings of worthlessness, suicidal ideation, and 'pseudodementia' (cognitive complaints with poor effort on testing).</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Normal aging</div>
+                <div class="opt-expl">Suicidal ideation, wandering, and significant irritability are not features of normal aging.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_2185dc322684</span></div>
+            </div>
+            <div class="stem">Contributory factors for elective mutism in children include,</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> Selective Mutism (SM) is an anxiety disorder characterized by a consistent failure to speak in specific social situations (e.g., school) despite speaking in other settings (e.g., home). Contributory factors include temperament (specifically shyness or social inhibition), high levels of anxiety, and potential comorbidities or risk factors such as language developmental delays which can exacerbate social anxiety.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The conflict lies in whether 'Shyness' (D) is a contributory factor. In psychiatric clinical practice and developmental psychology, shyness (as a manifestation of the temperament trait 'social inhibition') is a primary risk factor for Selective Mutism. The Database (DB) included 'Language developmental delay' (C) but excluded 'Shyness' (D). Since shyness is a more standard and widely recognized temperament factor for SM than language delay, the AI's inclusion of D makes its answer more clinically comprehensive and accurate. Both the DB and AI correctly identified Anxiety (A) and Language delay (C), but the AI's inclusion of the temperament factor (D) is superior.
+                <br><br><strong>Resolved By:</strong> gemma-4-26b-a4b-it
+                <br><strong>Verdict Trace:</strong> [Human: A, C | AI: A, C, D | Resolved: A, C, D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">A. Anxiety in the child</div>
+                <div class="opt-expl">Anxiety is the core pathophysiological mechanism of Selective Mutism; it is classified as an anxiety disorder in the DSM-5.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Family history of depressive disorder</div>
+                <div class="opt-expl">While anxiety disorders in the family are a risk factor, a family history of depressive disorder is not a specific contributory factor for Selective Mutism.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Language developmental delay</div>
+                <div class="opt-expl">Language delays are frequently associated with Selective Mutism and can act as a risk factor by increasing the child's social anxiety and difficulty in communicating in social settings.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Shyness</div>
+                <div class="opt-expl">Shyness, or the temperament trait of social inhibition, is one of the most well-documented risk factors/contributory factors for the development of Selective Mutism.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Speaking a single language at home</div>
+                <div class="opt-expl">There is no clinical evidence suggesting that speaking a single language is a contributory factor for Selective Mutism.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_1d170b9d57d2</span></div>
+            </div>
+            <div class="stem">Which of the following best differentiates multiple infarcted dementia than Alzheimer’s dementia of 64-years-old man?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> A 64-year-old man is being evaluated for dementia. The question asks for the best differentiating factor between multi-infarct dementia and Alzheimer's dementia.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> Vascular dementia, resulting from multiple infarcts, often presents with focal neurological signs related to the location of the infarcts. Gait disturbances, reflecting damage to motor pathways or subcortical structures, are a more prominent and earlier feature in vascular dementia compared to Alzheimer's disease. The other options are common to both conditions and therefore do not effectively differentiate them.
+                <br><br><strong>Resolved By:</strong> gemma-3-27b-it
+                <br><strong>Verdict Trace:</strong> [Human: B | AI: D | Resolved: D]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Urinary Incontinence</div>
+                <div class="opt-expl">Urinary incontinence can occur in both Alzheimer's and vascular dementia, particularly in later stages, and is not a reliable differentiator.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. Progressive memory impairment</div>
+                <div class="opt-expl">Progressive memory impairment is a hallmark of both Alzheimer's and vascular dementia, making it unsuitable for differentiation. While the *pattern* of memory impairment can differ, the presence of impairment itself doesn't distinguish them.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Word finding difficulty</div>
+                <div class="opt-expl">Word-finding difficulties (anomia) are common in both Alzheimer's and vascular dementia, and are not specific to either condition.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">D. Gait disturbances</div>
+                <div class="opt-expl">Gait disturbances (e.g., a shuffling gait, widened base, or frontal gait disorder) are more characteristic of vascular dementia (multi-infarct dementia) due to the involvement of subcortical structures and white matter tracts affected by infarcts. While gait can be affected in later stages of Alzheimer's, it's typically a later and less prominent feature than in vascular dementia.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Apraxia</div>
+                <div class="opt-expl">Apraxia (difficulty performing learned movements) is more commonly associated with Alzheimer's disease, particularly the ideomotor and ideational types, but can also occur in vascular dementia. It's not a strong differentiator.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-ai">AI Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_1849350d40f8</span></div>
+            </div>
+            <div class="stem">A 50 year old patient admitted with dengue fever was restless, a day after the admission.He had taken half a bottle of locally brewed alcohol once a day, upto the day of admission. He had tremors on outstretched hands, no signs of liver damage. What is the most important next step in management of his restlessness</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> The patient is presenting with early signs of alcohol withdrawal (restlessness, tremors) following the cessation of daily alcohol intake upon hospital admission. Benzodiazepines are the gold standard for managing alcohol withdrawal syndrome.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The clinical presentation is classic for alcohol withdrawal. Benzodiazepines (specifically long-acting ones like chlordiazepoxide or diazepam) are the standard of care. Antipsychotics are generally avoided due to seizure risk, and physical restraint is inappropriate for a medically manageable withdrawal state.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: Not provided in source text | AI: C | Resolved: C]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. IM chlorpromazine</div>
+                <div class="opt-expl">Low-potency antipsychotics like chlorpromazine lower the seizure threshold and are contraindicated in alcohol withdrawal.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">B. IM haloperidol</div>
+                <div class="opt-expl">Haloperidol lowers the seizure threshold and does not treat the underlying GABAergic deficiency of alcohol withdrawal.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">C. Oral chlordiazepoxide</div>
+                <div class="opt-expl">Long-acting benzodiazepines like chlordiazepoxide are the first-line treatment for alcohol withdrawal to prevent progression to delirium tremens and seizures.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Oral olanzapine</div>
+                <div class="opt-expl">Atypical antipsychotics are not first-line for alcohol withdrawal and do not address the underlying pathophysiology.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Restrain forcefully</div>
+                <div class="opt-expl">Physical restraint is a last resort and does not treat the underlying medical condition of alcohol withdrawal.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-human">Human Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_1451cd2efe55</span></div>
+            </div>
+            <div class="stem">A 70 year old man has bipolar illness. He has been on treatment for hypertension, chronic kidney disease and Parkinson’s disease. Which of the following is the most appropriate medication as a mood stabilizer for his bipolar illness?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> A 70-year-old patient with bipolar disorder, chronic kidney disease (CKD), and Parkinson's disease requires a mood stabilizer. The choice must avoid medications that are renally toxic or that exacerbate motor symptoms of Parkinson's disease.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The patient's comorbidities are the deciding factors. CKD excludes Lithium. Parkinson's disease excludes D2 antagonists like Haloperidol and Risperidone. Between Lamotrigine and Sodium Valproate, Lamotrigine is the most appropriate choice because Valproate can cause tremors that would exacerbate or mimic the symptoms of Parkinson's disease, whereas Lamotrigine has a more favorable motor side-effect profile in the elderly.
+                <br><br><strong>Resolved By:</strong> gemma-4-31b-it
+                <br><strong>Verdict Trace:</strong> [Human: B | AI: E | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Haloperidol</div>
+                <div class="opt-expl">Haloperidol is a first-generation antipsychotic and a potent D2 receptor antagonist. It is contraindicated or should be avoided in Parkinson's disease as it severely worsens motor symptoms (rigidity, bradykinesia).</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Lamotrigine</div>
+                <div class="opt-expl">Lamotrigine is a mood stabilizer that does not affect dopamine receptors (safe for Parkinson's) and is generally well-tolerated in the elderly. While it requires dose adjustment in renal impairment, it is not contraindicated in CKD and lacks the motor side effects associated with other options.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Lithium carbonate</div>
+                <div class="opt-expl">Lithium is primarily excreted by the kidneys and is contraindicated or requires extreme caution in patients with chronic kidney disease (CKD) due to the high risk of toxicity.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Risperidone</div>
+                <div class="opt-expl">Risperidone is an atypical antipsychotic that still possesses significant D2 blocking activity. Like haloperidol, it can exacerbate the motor symptoms of Parkinson's disease.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Sodium valproate</div>
+                <div class="opt-expl">While valproate is a mood stabilizer and safe in CKD, it is associated with a dose-related tremor, which can complicate the clinical picture and worsen the symptoms of Parkinson's disease.</div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div><span class="badge badge-human">Human Win</span> <span style="margin-left: 10px; color: var(--text-secondary)">PSYCH_0964c306021f</span></div>
+            </div>
+            <div class="stem">A 30 years old female previously diagnosed with Bipolar Affective Disorder is currently on Lithium treatment. She reveals to you that she has conceived and currently in the 8th week of POA. She is currently asymptomatic and has had 4 exacerbations within the last two years before starting the Lithium treatment. What’s the best option of management of this patient?</div>
+            
+            <div class="clinical-core">
+                <strong>Clinical Core:</strong> In a patient with a high risk of relapse (4 episodes in 2 years), the benefits of mood stabilization with Lithium during pregnancy generally outweigh the risks of Ebstein's anomaly, provided the patient is monitored closely.
+            </div>
+            
+            <div class="resolution-audit">
+                <strong>Resolution Audit:</strong> The patient has a high relapse risk (4 episodes in 2 years). The 'DB=C' choice is clinically dangerous as it ignores the high risk of relapse. The AI's choice (E) is also suboptimal because switching medications in a stable, high-risk patient is generally discouraged. Continuing Lithium with close monitoring is the standard of care for high-risk patients.
+                <br><br><strong>Resolved By:</strong> gemini-3.1-flash-lite-preview
+                <br><strong>Verdict Trace:</strong> [Human: C | AI: E | Resolved: B]
+            </div>
+
+            <div class="options-grid">
+                
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">A. Combine Lithium with Olanzapine</div>
+                <div class="opt-expl">Polypharmacy should be avoided in pregnancy unless strictly necessary for symptom control.</div>
+            </div>
+            
+            <div class="option-card correct">
+                <div class="opt-meta"><span style="color: var(--accent-green)">CORRECT</span></div>
+                <div class="opt-txt">B. Continue the same dose of Lithium</div>
+                <div class="opt-expl">Given the high risk of relapse (4 episodes in 2 years), the risk of untreated bipolar disorder (suicide, self-neglect, poor prenatal care) outweighs the teratogenic risk of Lithium. Lithium levels should be monitored closely as renal clearance increases during pregnancy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">C. Discontinue Lithium and carefully monitor the patient for the earliest features of an exacerbation</div>
+                <div class="opt-expl">Abrupt discontinuation in a high-risk patient is dangerous and likely to lead to relapse, which poses a significant risk to both mother and fetus.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">D. Reduce the dose of Lithium</div>
+                <div class="opt-expl">Reducing the dose may lead to sub-therapeutic levels and relapse. Dose adjustments should only be made based on serum monitoring, not as a prophylactic strategy.</div>
+            </div>
+            
+            <div class="option-card incorrect">
+                <div class="opt-meta"><span style="color: var(--accent-red)">INCORRECT</span></div>
+                <div class="opt-txt">E. Switch to Olanzapine from Lithium</div>
+                <div class="opt-expl">While antipsychotics are often used, switching a stable patient with a high relapse risk is not recommended unless there is a specific contraindication to Lithium. Lithium remains a gold-standard mood stabilizer.</div>
+            </div>
+            
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
